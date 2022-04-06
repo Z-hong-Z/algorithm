@@ -1,18 +1,36 @@
 package 堆排序;
 
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 
 public class HeapSort {
-    public static void main(String[] args) {
-        int[] heap = {1, 2, 3, 4, 5, 6};
-        int[] ret = null;
-        for (int i = 0; i < heap.length; i++) {
-            int val = heap[i];
-            ret = insert(ret, val);
+    static class Csort implements Comparator<Integer> {
+
+        @Override
+        public int compare(Integer o1, Integer o2) {
+            return o2 - o1;
         }
-        ret[0] = ret[ret.length - 1];
-        heapfiy(ret, 0, ret.length - 1);
-        Arrays.stream(ret).forEach(System.out::println);
+    }
+
+    public static void main(String[] args) {
+
+        switch (args[0]) {
+            case " ":
+                System.out.println();
+                break;
+            case "1":
+            default:
+                break;
+        }
+        PriorityQueue<Integer> heap = new PriorityQueue<>(new Csort());
+        heap.add(1);
+        heap.add(-1);
+        while (heap.size() != 0) {
+            System.out.println(heap.poll());
+        }
+
+
     }
 
     public static int[] insert(int[] heap, int val) {

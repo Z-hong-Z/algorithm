@@ -1,7 +1,5 @@
 package 全排列;
 
-import org.apache.spark.SparkConf;
-import org.apache.spark.SparkContext;
 
 import java.util.ArrayList;
 import java.util.List;
